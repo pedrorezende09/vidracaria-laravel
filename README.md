@@ -1,59 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🪟 Vidraçaria
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🎯 Visão Geral do Projeto
 
-## About Laravel
+Este projeto é um sistema web completo, desenvolvido para **Visualizar e Gerenciar Tabelas de Produtos** de uma vidraçaria, oferecendo um CRUD (Create, Read, Update, Delete) robusto para administração eficiente do catálogo.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O foco é fornecer uma interface de gerenciamento simples e direta, ideal para a gestão interna de itens e preços.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Tecnologias Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+O projeto foi construído utilizando as seguintes tecnologias e arquitetura:
 
-## Learning Laravel
+* **Framework:** Laravel (PHP)
+* **Padrão de Arquitetura:** MVC (Model-View-Controller) Clássico
+* **Banco de Dados:** SQLite
+* **Frontend:** Blade (renderização server-side, sem o uso de frameworks JavaScript)
+* **Testes:** Pest (Incluído no Starter Kit)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Instalação e Configuração
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Siga os passos abaixo para clonar o repositório e colocar o projeto para rodar em sua máquina local.
 
-## Laravel Sponsors
+### Pré-requisitos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Certifique-se de ter o seguinte software instalado:
 
-### Premium Partners
+* PHP (versão compatível com Laravel)
+* Composer
+* Node.js e npm
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Passos de Instalação
 
-## Contributing
+1.  **Clone o Repositório:**
+    ```bash
+    git clone [https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github](https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
+    cd vidracaria
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2.  **Instale as Dependências PHP:**
+    ```bash
+    composer install
+    ```
 
-## Code of Conduct
+3.  **Configuração do Ambiente:**
+    * Crie uma cópia do arquivo de ambiente:
+        ```bash
+        cp .env.example .env
+        ```
+    * Gere a chave da aplicação:
+        ```bash
+        php artisan key:generate
+        ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4.  **Instale as Dependências Frontend e Compile os Assets:**
+    ```bash
+    npm install
+    npm run dev
+    ```
 
-## Security Vulnerabilities
+5.  **Configure e Execute as Migrations:**
+    O banco de dados SQLite será criado e as tabelas serão estruturadas.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```bash
+    php artisan migrate
+    ```
 
-## License
+6.  **Inicie o Servidor:**
+    ```bash
+    php artisan serve
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+O projeto estará acessível em `http://127.0.0.1:8000`.
+
+## 📂 Estrutura de Diretórios (Arquitetura MVC)
+
+O projeto segue estritamente o padrão MVC do Laravel. Os principais arquivos e pastas para o CRUD de produtos são:
+
+| Componente | Caminho no Projeto | Função |
+| :--- | :--- | :--- |
+| **Controlador** | `app/Http/Controllers/ProductController.php` | Gerencia todas as requisições (Criação, Leitura, Edição, Deleção) do produto. |
+| **Modelo** | `app/Models/Product.php` | Representa a tabela de produtos no banco de dados e contém a lógica de negócio. |
+| **Banco de Dados** | `database/database.sqlite` | Arquivo do banco de dados persistente. |
+| **Listagem (Visualizar)** | `resources/views/products/index.blade.php` | Exibe a lista completa de produtos (tela inicial do gerenciamento). |
+| **Detalhes** | `resources/views/products/show.blade.php` | Exibe as informações detalhadas de um único produto. |
+| **Edição** | `resources/views/products/edit.blade.php` | Contém o formulário para atualizar os dados do produto. |
+| **Estilos** | `resources/css/app.css` | Arquivo de estilos SASS/CSS. A versão final compilada vai para `public/css/app.css`. |
+| **Rotas** | `routes/web.php` | Mapeia as URLs para as ações do `ProductController`. |
+
+## 💡 Como Usar
+
+**(Adicione aqui instruções detalhadas de como usar a interface, como credenciais de login ou as rotas principais, por exemplo: `http://127.0.0.1:8000/produtos`)**
+
+Após iniciar o servidor (`php artisan serve`):
+
+1.  Acesse o projeto pelo seu navegador.
+2.  Utilize a interface para interagir com o CRUD:
+    * **Criar (Create):** Adicione novos itens à tabela.
+    * **Visualizar (Read):** Acesse a listagem e os detalhes de cada produto.
+    * **Atualizar (Update):** Modifique os dados de um item existente.
+    * **Deletar (Delete):** Remova itens da tabela.
+
+## 🧪 Rodando os Testes
+
+O projeto utiliza o **Pest** para testes unitários e de integração. Para executar o conjunto de testes, utilize o seguinte comando:
+
+```bash
+php artisan test
