@@ -7,5 +7,11 @@ use App\Models\ProdutoVidro;
 
 class ProdutoVidro extends Model
 {
-    //
+   protected $fillable = [
+    'nome',
+    'tipo',
+    'espessura',
+    'preco',
+   ];
+   
 }

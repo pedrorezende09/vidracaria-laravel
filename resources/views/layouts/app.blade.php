@@ -5,7 +5,7 @@
         <title>Vidraçaria</title>
     </head>
     <body>
-        <h1>vidraçaria</h1>
+        <h1>Vidraçaria</h1>
         <hr>
 
         @yield('content')
